@@ -19,6 +19,8 @@ class SnakeAI:
         self.food = None
         self.grid = [[EMPTY for _ in range(width)] for _ in range(height)]
         self.place_food()
+        self.food_eaten = 0
+        self.moves_made = 0
 
     def place_food(self):
         while True:
@@ -108,9 +110,11 @@ class SnakeAI:
 
         if next_pos == self.food:
             self.place_food()
+            self.food_eaten += 1
         else:
             self.snake.pop()
 
+        self.moves_made += 1
         return True
 
     def run(self):
@@ -119,8 +123,10 @@ class SnakeAI:
             self.print_grid()
             if not self.move():
                 print("Fim do jogo!")
+                print(f"Alimentos consumidos: {self.food_eaten}")
+                print(f"Movimentos realizados: {self.moves_made}")
                 break
-            time.sleep(0.5)
+            time.sleep(0.3)
 
 # Exemplo de uso
 if __name__ == "__main__":
