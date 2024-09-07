@@ -8,6 +8,7 @@ SNAKE_HEAD = '■'
 SNAKE_BODY = '▪'
 FOOD = '*'
 WALL = '▓'
+SIZE = 20
 
 class SnakeAI:
     def __init__(self, width, height):
@@ -128,7 +129,6 @@ class SnakeAI:
                 break
             time.sleep(0.3)
 
-# Exemplo de uso
 if __name__ == "__main__":
-    game = SnakeAI(20, 10)
+    game = SnakeAI(SIZE, SIZE)
     game.run()
